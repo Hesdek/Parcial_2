@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
+\usepackage{graphicx}
 
 \title{Informe Parcial II}
 \author{daniel.perez19 }
@@ -41,7 +42,13 @@
 \subsection{Día 1}
 Requerimos de una función para modificar el tamaño de las imagenes a un mismo valor, sin importar el tamaño orginal o de si sea menor a lo esperado.
 Realizar una función para sacar todos los valores separados del RGB.
-Segunda función será la altura en pixeles de nuestra imagen. Buscamos mas documentación para comprender más sobre el tema tratado.
+Segunda función será la altura en pixeles de nuestra imagen. Buscamos mas documentación para comprender más sobre el tema tratado.\\
+
+Pensamos en una solución de separar las filas y columnas pares, dejando solamente las columnas pares, de este modo, tendremos la misma imagen, pero recortada a la mitad, luego realizamos el mismo proceso pero cortando las filas, obteniendo un tamaño menor pero proporcional a la imagen original, repiendo el proceso hasta obtener el tamaño deseado.\\
+
+\includegraphics[width=4cm]{recorte1.jpeg}
+\includegraphics[width=4cm]{recorte2.jpeg}
+\includegraphics[width=4cm]{recorte3.jpeg}
 
 
 \end{document}
