@@ -40,8 +40,17 @@
 
 \section{Análisis}
 \subsection{Análisis del problema}
-Mientras más pequeña sea la matriz de LEDs, menos información deberemos exportar, será más eficiente y fácil, sin embargo, la imagen se volverá dificil de reconocer para el usuario, por lo tanto, acordamos hacer la matriz de LEDs de 32x32\\
-\\Pensamos a forma de solución para el submuestreo, separar las filas y columnas pares, dejando solamente las columnas pares, de este modo, tendremos la misma imagen, pero recortada a la mitad, luego realizamos el mismo proceso pero cortando las filas, obteniendo un tamaño menor pero proporcional a la imagen original, repiendo el proceso hasta obtener el tamaño deseado.\\
+Al analizar detenidamente el parcial, observamos que el mayor reto  sería la modificación del tamaño de las imágenes, adeptándolo a un tamaño específico, ya sea aumentando o disminuyendo la proporción.\\ 
+\\Para el submuestreo, pensamos a forma de solución organizar los RGB en filas y columnas separadas, una vez hecho esto, eliminar las que son pares, de este modo, tendremos la misma imagen, pero recortada a un cuarto de la,  obteniendo un tamaño menor pero proporcional a la imagen original, repiendo el proceso hasta obtener el tamaño deseado.\\
+
+Si la imagen dada tiene un tamaño menor al esperado, se hará un proceso parecido al de eliminar, pero en este caso se aumentarán las filas/columnas colocandolas continuas a ellas mismas  hasta quedar con la proporción deseada.
+
+En el caso de que la imagen no se adapte al tamaño específico deseado, se va a eliminar o aunmentar ya sea filas o columnas sobrantes o faltantes para que tenga una propoción adecuada.\\
+
+
+\\Mientras más pequeña sea la matriz de LEDs, menos información deberemos exportar, será más eficiente y fácil, sin embargo, la imagen se volverá dificil de reconocer para el usuario, por lo tanto, acordamos hacer la matriz de LEDs de 32x32\\
+
+
 \includegraphics[width=4cm]{Imagenes/recorte1.jpeg}
 \includegraphics[width=4cm]{Imagenes/recorte2.jpeg}
 \includegraphics[width=4cm]{Imagenes/recorte3.jpeg}
