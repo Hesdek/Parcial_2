@@ -38,17 +38,19 @@
 
 \tableofcontents
 
-\section{Análisis del problema}
-\subsection{Día 1}
-Requerimos de una función para modificar el tamaño de las imagenes a un mismo valor, sin importar el tamaño orginal o de si sea menor a lo esperado.
-Realizar una función para sacar todos los valores separados del RGB.
-Segunda función será la altura en pixeles de nuestra imagen. Buscamos mas documentación para comprender más sobre el tema tratado.\\
+\section{Análisis}
+\subsection{Análisis del problema}
+Mientras más pequeña sea la matriz de LEDs, menos información deberemos exportar, será más eficiente y fácil, sin embargo, la imagen se volverá dificil de reconocer para el usuario, por lo tanto, acordamos hacer la matriz de LEDs de 32x32\\
+\\Pensamos a forma de solución para el submuestreo, separar las filas y columnas pares, dejando solamente las columnas pares, de este modo, tendremos la misma imagen, pero recortada a la mitad, luego realizamos el mismo proceso pero cortando las filas, obteniendo un tamaño menor pero proporcional a la imagen original, repiendo el proceso hasta obtener el tamaño deseado.\\
+\includegraphics[width=4cm]{Imagenes/recorte1.jpeg}
+\includegraphics[width=4cm]{Imagenes/recorte2.jpeg}
+\includegraphics[width=4cm]{Imagenes/recorte3.jpeg}
 
-Pensamos en una solución de separar las filas y columnas pares, dejando solamente las columnas pares, de este modo, tendremos la misma imagen, pero recortada a la mitad, luego realizamos el mismo proceso pero cortando las filas, obteniendo un tamaño menor pero proporcional a la imagen original, repiendo el proceso hasta obtener el tamaño deseado.\\
 
-\includegraphics[width=4cm]{recorte1.jpeg}
-\includegraphics[width=4cm]{recorte2.jpeg}
-\includegraphics[width=4cm]{recorte3.jpeg}
+\subsection{Tareas a realizar}
+1. Realizar una función para sacar todos los valores separados del RGB.\\
+2. Aplicar la técnica de "Recortar la imagen" analizada antes e implementarla a una clase "Imagen".\\
+3. Segunda función será la altura en pixeles de nuestra imagen. Buscamos mas documentación para comprender más sobre el tema tratado.\\
 
 
 \end{document}
