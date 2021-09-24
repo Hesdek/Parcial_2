@@ -20,4 +20,7 @@ int main()
               imagen_original.set_color(filas,columnas,color);
         }
     }
+
+    imagen_original.txt_generado();
+
 }
