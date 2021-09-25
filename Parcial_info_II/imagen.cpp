@@ -53,10 +53,14 @@ void Imagen::txt_generado()
     txt << "byte arrays[256][3]={";
     for (int i=0;i<fila ;i++ ) {
         for (int j=0;j<columna ;j++ ) {
-            txt<<"{"<<Pixel_color[i][j].getRed()<<","<<Pixel_color[i][j].getGreen()<<","<<Pixel_color[i][j].getBlue()<<"}"<<"}";
+            txt<<"{"<<Pixel_color[i][j].getRed()<<","<<Pixel_color[i][j].getGreen()<<","<<Pixel_color[i][j].getBlue()<<"}";
+            if(j<columna-1){
+                txt<<",";
             }
+        }
             txt<<endl;
         }
+   txt<<"};";
    txt.close();
-   cout<<"Completado";
+   cout<<endl<<"Completado"<<endl;
 }
