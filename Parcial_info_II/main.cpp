@@ -4,46 +4,28 @@
 #include <vector>
 #include "pixel_rgb.h"
 #include "imagen.h"
+#include "menu.h"
 
 using namespace std;
 
 Imagen reducir(Imagen imagen,int x, int y);//Funcion de submuestreo
+Imagen agrandar(Imagen imagen,int x, int y);//Funcion de sobremuestreo
+
 
 
 int main()
 {
-    QImage im;
-    string FilePath = "../Parcial_info_II/Imagenes/";
-    string fileName;
+    QImage im=menu();
+    Imagen imagen_original(im.width(),im.height());
+    Imagen reducida;
+    Imagen agrandada;
     int x, y;
-
-    cout<<endl<<"------------------"<< endl ;
-    cout <<"|||[Bienvenido]|||"<<endl;
-    cout<<"------------------"<< endl ;
-    cout << "Ingrese el nombre de la imagen con su formato incluido"<<endl;
-    cout<< "Ingrese: ";
-    cin >> fileName; cout << endl;
-    FilePath.append(fileName);
     cout<<"Ingrese el tamaño de la imagen deseado: "<<endl;
     cout<<"Ancho: ";
     cin>>x;
-    cout<<endl<<"Alto: ";
+    cout<<"Alto: ";
     cin>>y;
     cout<<endl;
-
-    if(im.load(FilePath.c_str())){
-        cout <<"..."<< endl;
-        cout << "Imagen cargada con exito. " << endl;
-    }
-    else{
-        cout << "La imagen no existe" << endl;
-        cout << "La imagen debe estar dentro de la carpeta 'Imagenes'" << endl;
-        exit(1);
-    }
-
-    Imagen imagen_original(im.width(),im.height());
-    Imagen reducida;
-
 
     for(int filas=0;filas<im.width();++filas){
         for(int columnas=0;columnas<im.height();++columnas){
@@ -53,6 +35,8 @@ int main()
     }
     reducida=reducir(imagen_original,x,y);
     reducida.txt_generado();
+    agrandada=agrandar(imagen_original,x,y);
+    agrandada.txt_generado();
 
 }
 
@@ -66,6 +50,8 @@ Imagen reducir(Imagen imagen,int m, int n){
 
     int filaO=imagen.getFila();
     int ColumnaO=imagen.getColumna();
+
+
     if(bloqueF*m<filaO){
         int dif=filaO-bloqueF*m;
         filaO-=dif;
@@ -79,11 +65,29 @@ Imagen reducir(Imagen imagen,int m, int n){
         c=0;
         for (int j=0; j<ColumnaO; j+=bloqueC ) {
             Pixel_RGB nuevoPixel = imagen.Promedio_Color(i,bloqueF,j,bloqueC);
-                        reducida.set_color(f,c,nuevoPixel);
-                        c++;
+            reducida.set_color(f,c,nuevoPixel);
+            c++;
         }
         f++;
     }
     return reducida;
 }
+
+Imagen agrandar(Imagen imagen,int x, int y){
+    int bloqueF = x/imagen.getFila();//2
+    int bloqueC = y/imagen.getColumna();
+    Imagen agrandada(x,y);
+    for(int i=0;i<imagen.getFila();i++){
+        for(int j=0;j<imagen.getColumna();j++){
+            Pixel_RGB nuevoPixel;
+            agrandada.set_color(i,j,nuevoPixel);
+        }
+    }
+    return agrandada;
+}
+
+
+
+
+
 
