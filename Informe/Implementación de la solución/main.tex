@@ -40,38 +40,7 @@
 \end{titlepage}
 
 \tableofcontents
-
-\section{Análisis}
-\subsection{Análisis del problema}
-Al analizar detenidamente el parcial y las instrucciones planteadas, observamos que el mayor reto consistiría en la modificación del tamaño de las imágenes, adaptándolo a un tamaño específico, ya sea aumentando o disminuyendo la proporción.\\ 
-
-Si la imagen dada tiene un tamaño menor al esperado, se hará un proceso parecido al de eliminar, pero en este caso se aumentarán las filas/columnas colocandolas continuas a ellas mismas  hasta quedar con la proporción deseada.\\
-
-Para reducir el tamaño de la imagen, implementamo un método para dividir el número de filas y columnas de la imagen original por el tamaño deseado.\\
-
-Mientras más pequeña sea la matriz de LEDs, menos información deberemos exportar, será más eficiente y fácil, sin embargo, la imagen se volverá dificil de reconocer para el usuario.\\
-
-\includegraphics[width=4cm]{Imagenes/recorte1.jpeg}
-\includegraphics[width=4cm]{Imagenes/recorte2.jpeg}
-\includegraphics[width=4cm]{Imagenes/recorte3.jpeg}
-\vspace{0,3cm}
-
-\subsection{Tareas a realizar}
-\includegraphics[width=15cm]{Imagenes/Esquema.jpeg}
-
-\subsection{Algoritmo implementado}
-Diagrama de flujo del algoritmo que implemenatremos para la solución del problema (No código)\\
-\includegraphics[width=14cm]{Imagenes/Diagrama.png}
-
-\subsection{Consideraciones}
-Una de las consideraciones más importantes que encontramos fué una correcta identificación de cada columna y fila de píxeles RGB, y mirar el modo de separar cada una.\\
-
-El método y el formato para generar el .txt final y enviarlo a tinkercad.\\
-
-Si una imagen tiene tamaños que necesiten procesos distintos, como una que sea 10x100, se tendrán que realizar los dos procesos de sobremuestreo y submuestreo\\
-
-Si se puede generar un inconveniente si se pone una imagen con un formato distinto a jpg como png o jpeg\\
-
+\vspace{2cm}
 \section{Clases implementadas}
 \subsection{Imagen}
 Encargada de manejar la imagen con los parámetros de su alto y ancho\\
@@ -92,7 +61,7 @@ Justo como lo analizamos, el método para reducir y amplificar la imgagen fué l
 
 Desconocíamos el formato que debían ser escritos los RGB en el .txt generado para tinkercad y si teníamos que insertar algún método para que el usuario no tenga que copiar y pegar el RGB en el tinkercad\\
 
-La conexión del circuito fué un problema menor, sin embargo, acudimos a ver más documentación y videos sobre el código y la conexión de Tinkercad más de lo que pensábamos.
+La conexión del circuito fué un problema menor gracias a la búsqueda de documentación y videos sobre el código y la conexión en tinkercad; sin embargo, pensábamos que se encenderían los LEDs rápido, pero como no lo hacian debido a toda la información que se procesaba, abortabamos el proceso pensando que el circuito estaba malo, pero no lo estaba, solo éramos muy impacientes. 
 
 
 \end{document}
