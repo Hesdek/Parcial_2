@@ -70,12 +70,17 @@ void Imagen::txt_generado()
     for (int i=0;i<fila ;i++ ) {
         for (int j=0;j<columna ;j++ ) {
             txt<<"{"<<Pixel_color[i][j].getRed()<<","<<Pixel_color[i][j].getGreen()<<","<<Pixel_color[i][j].getBlue()<<"}";
-            if(j<columna-1){
+            if(i==fila-1){
+                if(j<columna-1){
+                    txt<<",";
+                }
+            }
+            else if(j<columna){
                 txt<<",";
             }
         }
-            txt<<endl;
-        }
+        txt<<endl;
+    }
    txt<<"};";
    txt.close();
    cout<<endl<<"Completado"<<endl;

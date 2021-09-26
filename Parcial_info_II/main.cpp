@@ -42,6 +42,8 @@ int main()
     }
 
     Imagen imagen_original(im.width(),im.height());
+    Imagen reducida;
+
 
     for(int filas=0;filas<im.width();++filas){
         for(int columnas=0;columnas<im.height();++columnas){
@@ -49,8 +51,8 @@ int main()
               imagen_original.set_color(filas,columnas,color);
         }
     }
-
-    imagen_original.txt_generado();
+    reducida=reducir(imagen_original,x,y);
+    reducida.txt_generado();
 
 }
 
@@ -61,8 +63,9 @@ Imagen reducir(Imagen imagen,int m, int n){
     int bloqueF= imagen.getFila()/m;//obtenemos bloque de filas x
     int bloqueC= imagen.getColumna()/n;//obtenemos bloque de columnas y
     int c=0, f=0;
-    for (int i=0; i<imagen.getFila(); i+=m) {
-        for (int j=0; j<imagen.getColumna(); j+=n ) {
+    for (int i=0; i<imagen.getFila(); i+=bloqueF) {
+        c=0;
+        for (int j=0; j<imagen.getColumna(); j+=bloqueC ) {
             Pixel_RGB nuevoPixel = imagen.Promedio_Color(i,bloqueF,j,bloqueC);
                         reducida.set_color(f,c,nuevoPixel);
                         c++;
