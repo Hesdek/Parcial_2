@@ -23,6 +23,7 @@ public:
     void setColumna(int value);
     void imprimir_pruebas();
     void txt_generado();
+    Pixel_RGB Promedio_Color(int fo, int cantidadF, int co, int cantidadC);
 };
 
 

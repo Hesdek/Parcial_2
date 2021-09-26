@@ -37,6 +37,22 @@ void Imagen::setColumna(int value)
     columna = value;
 }
 
+Pixel_RGB Imagen::Promedio_Color(int fo, int cantidadF, int co, int cantidadC)
+{
+    int limF = fo+cantidadF;
+    int limC = co+cantidadC;
+    int pixeles = cantidadF*cantidadC;
+    int sumaRed = 0, sumaGreen= 0, sumaBlue = 0;
+    for (int f=fo; f<limF; f++ ) {
+        for (int c=co; c<limC; c++ ) {
+            sumaRed += Pixel_color[f][c].getRed();
+            sumaGreen += Pixel_color[f][c].getGreen();
+            sumaBlue += Pixel_color[f][c].getBlue();
+        }
+    }
+
+    return Pixel_RGB(sumaRed/pixeles, sumaGreen/pixeles, sumaBlue/pixeles);
+}
 void Imagen::imprimir_pruebas()
 {
     for (int i=0;i<fila ;i++ ) {

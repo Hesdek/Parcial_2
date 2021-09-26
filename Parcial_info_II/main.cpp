@@ -9,6 +9,7 @@ using namespace std;
 
 Imagen reducir(Imagen imagen,int x, int y);//Funcion de submuestreo
 
+
 int main()
 {
     QImage im;
@@ -54,13 +55,20 @@ int main()
 }
 
 
+
 Imagen reducir(Imagen imagen,int m, int n){
+    Imagen reducida(m,n);
     int bloqueF= imagen.getFila()/m;//obtenemos bloque de filas x
     int bloqueC= imagen.getColumna()/n;//obtenemos bloque de columnas y
-
-    for (int i=0; i<imagen.getFila(); i+=bloqueF) {
-        for (int j=0; j<imagen.getColumna(); j+=bloqueC ) {
+    int c=0, f=0;
+    for (int i=0; i<imagen.getFila(); i+=m) {
+        for (int j=0; j<imagen.getColumna(); j+=n ) {
+            Pixel_RGB nuevoPixel = imagen.Promedio_Color(i,bloqueF,j,bloqueC);
+                        reducida.set_color(f,c,nuevoPixel);
+                        c++;
         }
+        f++;
     }
-
+    return reducida;
 }
+
