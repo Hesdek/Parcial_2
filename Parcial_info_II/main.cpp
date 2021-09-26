@@ -63,9 +63,21 @@ Imagen reducir(Imagen imagen,int m, int n){
     int bloqueF= imagen.getFila()/m;//obtenemos bloque de filas x
     int bloqueC= imagen.getColumna()/n;//obtenemos bloque de columnas y
     int c=0, f=0;
-    for (int i=0; i<imagen.getFila(); i+=bloqueF) {
+
+    int filaO=imagen.getFila();
+    int ColumnaO=imagen.getColumna();
+    if(bloqueF*m<filaO){
+        int dif=filaO-bloqueF*m;
+        filaO-=dif;
+    }
+    if(bloqueC*n<ColumnaO){
+        int dif=ColumnaO-bloqueC*n;
+        ColumnaO-=dif;
+    }
+
+    for (int i=0; i<filaO; i+=bloqueF) {
         c=0;
-        for (int j=0; j<imagen.getColumna(); j+=bloqueC ) {
+        for (int j=0; j<ColumnaO; j+=bloqueC ) {
             Pixel_RGB nuevoPixel = imagen.Promedio_Color(i,bloqueF,j,bloqueC);
                         reducida.set_color(f,c,nuevoPixel);
                         c++;
