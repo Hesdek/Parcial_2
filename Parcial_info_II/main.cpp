@@ -11,7 +11,15 @@ using namespace std;
 Imagen reducir(Imagen imagen,int x, int y);//Funcion de submuestreo
 Imagen agrandar(Imagen imagen,int x, int y);//Funcion de sobremuestreo
 
+/*for (qwe=0; qwe<dif; qwe++){
+    if (qwe%2==0){
 
+    }
+    else{
+
+    }
+}
+*/
 
 int main()
 {
@@ -74,15 +82,27 @@ Imagen reducir(Imagen imagen,int m, int n){
 }
 
 Imagen agrandar(Imagen imagen,int x, int y){
-    int bloqueF = x/imagen.getFila();//2
+    int bloqueF = x/imagen.getFila();
     int bloqueC = y/imagen.getColumna();
     Imagen agrandada(x,y);
-    for(int i=0;i<imagen.getFila();i++){
-        for(int j=0;j<imagen.getColumna();j++){
-            Pixel_RGB nuevoPixel;
-            agrandada.set_color(i,j,nuevoPixel);
+    int c=0, f=0;
+
+    for(int k=0;k<bloqueF;k++){
+        for(int i=0;i<imagen.getFila();i++){
+            c=0;
+            for(int j=0;j<imagen.getColumna();j++){
+                for(int l=0;l<bloqueC;l++){
+                }
+
+                Pixel_RGB nuevoPixel= imagen.recorrer(i,j);
+                agrandada.set_color(f,c,nuevoPixel);
+
+                c++;
+            }
         }
+        f++;
     }
+
     return agrandada;
 }
 

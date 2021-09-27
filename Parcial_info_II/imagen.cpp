@@ -62,6 +62,23 @@ void Imagen::imprimir_pruebas()
             cout<<endl;
         }
 }
+
+Pixel_RGB Imagen::recorrer (int fo, int co)
+{
+    int limF = fo;
+    int limC = co;
+    int Red = 0, Green= 0, Blue = 0;
+    for (int f=fo; f<=limF; f++ ) {
+        for (int c=co; c<=limC; c++ ) {
+            Red = Pixel_color[f][c].getRed();
+            Green = Pixel_color[f][c].getGreen();
+            Blue = Pixel_color[f][c].getBlue();
+        }
+    }
+
+    return Pixel_RGB(Red, Green, Blue);
+}
+
 void Imagen::txt_generado()
 {
     ofstream txt;

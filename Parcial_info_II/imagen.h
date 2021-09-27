@@ -24,6 +24,7 @@ public:
     void imprimir_pruebas();
     void txt_generado();
     Pixel_RGB Promedio_Color(int fo, int cantidadF, int co, int cantidadC);
+    Pixel_RGB recorrer(int fo, int co);
 };
 
 
