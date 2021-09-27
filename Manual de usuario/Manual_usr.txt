@@ -3,15 +3,15 @@
 ════════════════
 
 1° La imagen que desea observar, debe ser colocada en la carpeta "Imagenes", la cual está dentro de la carpeta "Parcial_info_II"
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━※━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━※━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 2° Inicie Qt y abra el proyecto "Parcial_info_II.pro". Después de estar abierto, ejecute el programa con el flecha verde mostrada en la esquina inferior izquierda.
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━※━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━※━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 3° Le saldrá una terminal para escribir, en ella escriba el nombre de la imagen que insertó anteriormente. Por ejemplo "Ellaesfanaticadelosensual.jpg", a continuación elija el tamaño que desea modificar su imagen en números (Se recomienda que sea 16 de ancho y largo)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━※━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━※━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 4° La terminal le mostrará un mensaje diciendo "Completado", cierre Qt, luego observará que tiene un nuevo archivo de texto en la carpeta "Parcial_info_II" llamado "Tinker"
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━※━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━※━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 5° Abra su navegador e inserte este link: https://www.tinkercad.com/things/kHvvtLVo3zd
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━※━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━※━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 6° Dele click al botón "Modificar" y luego al botón "Código" mostrado en la parte superior y siga las instrucciones mostradas en color naranja
 
 ════════════════

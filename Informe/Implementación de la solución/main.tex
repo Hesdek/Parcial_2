@@ -40,16 +40,22 @@
 \end{titlepage}
 
 \tableofcontents
-\vspace{2cm}
+\vspace{1,5cm}
 \section{Clases implementadas}
+
+\subsection{Menu}
+Clase iteractiva con el usuario, delegada de pedir el nombre de la imagen con su formato, almacenada en la carpeta 'Imagenes'. Retorna la variable 'im', correspondiente a la imagen cargada con el tipo QImage.\\
+
 \subsection{Imagen}
-Encargada de manejar la imagen con los parámetros de su alto y ancho\\
+Encargada de manejar la imagen con los parámetros de su alto y ancho, promediar los colores por bloques y crear el .txt generado con el formato adecuado.\\
+
 \subsection{Pixel RGB}
-Es la encargada de almacenar los pixeles RGB de la imagen para luego separarlos\\
+Es la encargada de almacenar los pixeles RGB de la imagen para luego separarlos, tiene como parámetro los colores del RGB\\
 
 \section{Esquema de las clases}
+\includegraphics[width=14cm]{Imagenes/clases.jpeg}
 
-\section{Código}
+\section{Módulos de código}
 
 \section{Estructura del circuito montado}
 Para la matriz de LEDs en Tinkerdad, diseñamos un circuito de 16x16 LEDs, hecha con tiras de neopixel. Cada una con su salida conectada a la entrada de la fila/tira superior, la potencia conectada a un sumnistro de energía y todas las coneciones para que el circuito funcione con normalidad\\
