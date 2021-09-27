@@ -26,17 +26,25 @@ int main()
     cin>>y;
     cout<<endl;
 
+
     for(int filas=0;filas<im.width();++filas){
         for(int columnas=0;columnas<im.height();++columnas){
               Pixel_RGB color(im.pixelColor(filas,columnas).red(), im.pixelColor(filas,columnas).green(),im.pixelColor(filas,columnas).blue());
               imagen_original.set_color(filas,columnas,color);
         }
     }
-    reducida=reducir(imagen_original,x,y);
-    reducida.txt_generado();
-    agrandada=agrandar(imagen_original,x,y);
-    agrandada.txt_generado();
 
+    if(im.width() > x && im.width() > y){
+        reducida=reducir(imagen_original,x,y);
+        reducida.txt_generado();
+    }
+    else if(im.width() < x && im.width() < y){
+        agrandada=agrandar(imagen_original,x,y);
+        agrandada.txt_generado();
+    }
+    else if(im.width() == x && im.width()== y){
+        imagen_original.txt_generado();
+    }
 }
 
 
