@@ -33,10 +33,11 @@ int main()
               imagen_original.set_color(filas,columnas,color);
         }
     }
-
     if(im.width() > x && im.width() > y){
+
         reducida=reducir(imagen_original,x,y);
         reducida.txt_generado();
+       // reducida.imprimir_pruebas();
     }
     else if(im.width() < x && im.width() < y){
         agrandada=agrandar(imagen_original,x,y);
@@ -45,6 +46,8 @@ int main()
     else if(im.width() == x && im.width()== y){
         imagen_original.txt_generado();
     }
+
+
 }
 
 
@@ -72,7 +75,7 @@ Imagen reducir(Imagen imagen,int m, int n){
         c=0;
         for (int j=0; j<ColumnaO; j+=bloqueC ) {
             Pixel_RGB nuevoPixel = imagen.Promedio_Color(i,bloqueF,j,bloqueC);
-            reducida.set_color(f,c,nuevoPixel);
+            reducida.set_color(c,f,nuevoPixel);
             c++;
         }
         f++;
@@ -92,7 +95,7 @@ Imagen agrandar(Imagen imagen,int x, int y){
             for(int j=0;j<imagen.getColumna();j++){
                 for(int l=0;l<bloqueC;l++){
                 Pixel_RGB nuevoPixel= imagen.recorrer(i,j);
-                agrandada.set_color(f,c,nuevoPixel);
+                agrandada.set_color(c,f,nuevoPixel);
                 }
                 c++;
             }
