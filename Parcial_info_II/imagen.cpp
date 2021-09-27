@@ -53,6 +53,8 @@ Pixel_RGB Imagen::Promedio_Color(int fo, int cantidadF, int co, int cantidadC)
 
     return Pixel_RGB(sumaRed/pixeles, sumaGreen/pixeles, sumaBlue/pixeles);
 }
+
+
 void Imagen::imprimir_pruebas()
 {
     for (int i=0;i<fila ;i++ ) {

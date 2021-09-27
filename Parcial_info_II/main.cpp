@@ -11,15 +11,6 @@ using namespace std;
 Imagen reducir(Imagen imagen,int x, int y);//Funcion de submuestreo
 Imagen agrandar(Imagen imagen,int x, int y);//Funcion de sobremuestreo
 
-/*for (qwe=0; qwe<dif; qwe++){
-    if (qwe%2==0){
-
-    }
-    else{
-
-    }
-}
-*/
 
 int main()
 {
@@ -28,7 +19,7 @@ int main()
     Imagen reducida;
     Imagen agrandada;
     int x, y;
-    cout<<"Ingrese el tamaño de la imagen deseado: "<<endl;
+    cout<<"Ingrese el tamano de la imagen deseado: "<<endl;
     cout<<"Ancho: ";
     cin>>x;
     cout<<"Alto: ";
@@ -92,11 +83,9 @@ Imagen agrandar(Imagen imagen,int x, int y){
             c=0;
             for(int j=0;j<imagen.getColumna();j++){
                 for(int l=0;l<bloqueC;l++){
-                }
-
                 Pixel_RGB nuevoPixel= imagen.recorrer(i,j);
                 agrandada.set_color(f,c,nuevoPixel);
-
+                }
                 c++;
             }
         }
@@ -105,9 +94,6 @@ Imagen agrandar(Imagen imagen,int x, int y){
 
     return agrandada;
 }
-
-
-
 
 
 
