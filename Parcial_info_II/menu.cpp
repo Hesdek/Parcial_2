@@ -6,10 +6,11 @@ QImage menu(){
     string fileName;
 
 
-cout<<"------------------"<< endl ;
-cout <<"|||[Bienvenido]|||"<<endl;
-cout<<"------------------"<< endl ;
+cout<<"-------------------------------------------------------"<< endl ;
+cout <<"|||||||||||||||||||||[BIENVENIDO]||||||||||||||||||||||"<<endl;
+cout<<"-------------------------------------------------------"<< endl ;
 cout << "Ingrese el nombre de la imagen con su formato incluido"<<endl;
+cout<<"Ejemplo: Colombia.png"<<endl;
 cout<< "Ingrese: ";
 cin >> fileName; cout << endl;
 FilePath.append(fileName);
