@@ -34,17 +34,15 @@ int main()
         }
     }
     if(im.width() > x && im.width() > y){
-
         reducida=reducir(imagen_original,x,y);
-        reducida.txt_generado();
-       // reducida.imprimir_pruebas();
+        reducida.txt_generado(x,y);
     }
     else if(im.width() < x && im.width() < y){
         agrandada=agrandar(imagen_original,x,y);
-        agrandada.txt_generado();
+        agrandada.txt_generado(x,y);
     }
     else if(im.width() == x && im.width()== y){
-        imagen_original.txt_generado();
+        imagen_original.txt_generado(x,y);
     }
 
 

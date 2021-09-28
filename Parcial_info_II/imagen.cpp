@@ -81,11 +81,11 @@ Pixel_RGB Imagen::recorrer (int fo, int co)
     return Pixel_RGB(Red, Green, Blue);
 }
 
-void Imagen::txt_generado()
+void Imagen::txt_generado(int x,int y)
 {
     ofstream txt;
     txt.open ("../Parcial_info_II/tinker.txt");
-    txt << "byte arrays[256][3]={";
+    txt << "byte arrays["<<x*y<<"][3]={";
     for (int i=0;i<fila ;i++ ) {
         for (int j=0;j<columna ;j++ ) {
             txt<<"{"<<Pixel_color[i][j].getRed()<<","<<Pixel_color[i][j].getGreen()<<","<<Pixel_color[i][j].getBlue()<<"}";
