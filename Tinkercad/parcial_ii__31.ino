@@ -4,10 +4,13 @@
 Adafruit_NeoPixel leds(LED_COUNT, PIN, NEO_GRB + NEO_KHZ800);
 
 //Bienvenido! 
-//Por favor copie y pegue el txt generado "Tinker" en la siguiente línea de abajo
-//Luego de insertarlo, dele click en el botón "Inciar simulación" en la parte superior derecha
+//Copie y pegue el txt generado "Tinker" en la siguiente línea de abajo
+//Luego de insertarlo, dele click en el botón "Inciar simulación" 
+//ubicado en la parte superior derecha
 //Recuerde que las obras maestras requieren tiempo
 //los LEDs tardarán de 20 a 30 segundos en encenderce por completo
+
+
 
 
 void setup()
