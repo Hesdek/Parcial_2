@@ -76,7 +76,7 @@ Clase iteractiva con el usuario, delegada de pedir el nombre de la imagen con su
 Encargada de manejar la imagen con los parámetros de su alto y ancho, promediar los colores por bloques y crear el .txt generado con el formato adecuado.\\
 
 \subsection{Pixel RGB}
-Es la encargada de almacenar los pixeles RGB de la imagen para luego separarlos, tiene como parámetro los colores del RGB\\
+Es la encargada de almacenar los pixeles RGB de la imagen, tiene como parámetro los colores del RGB\\
 
 \section{Esquema de las clases}
 \includegraphics[width=14cm]{Imagenes/clases.jpeg}
@@ -143,10 +143,131 @@ Pixel_RGB Imagen::Promedio_Color(int fo, int cantidadF, int co, int cantidadC)
 \end{lstlisting}
 \vspace{1,5cm}
 
-\begin{lstlisting}[language=C++, caption=Clase set color]
-void Imagen::set_color(int x, int y, Pixel_RGB color){
-        Pixel_color[x][y].setColor(color);
+Se evidencia la utilización de la clase pixel RGB, donde se almacenan los pixeles en una función de la clase imagen.
+\begin{lstlisting}[language=C++, caption=]
+int main()
+{
+    QImage im=menu();
+    Imagen imagen_original(im.width(),im.height());
+    Imagen reducida;
+    Imagen agrandada;
+    int x, y;
+    cout<<"Ingrese el tamano de la imagen deseado: "<<endl;
+    cout<<"Ancho: ";
+    cin>>x;
+    cout<<"Alto: ";
+    cin>>y;
+    cout<<endl;
+
+
+    for(int filas=0;filas<im.width();++filas){
+        for(int columnas=0;columnas<im.height();++columnas){
+              Pixel_RGB color(im.pixelColor(filas,columnas).red(), im.pixelColor(filas,columnas).green(),im.pixelColor(filas,columnas).blue());
+              imagen_original.set_color(filas,columnas,color);
+        }
+    }
+    if(im.width() > x && im.width() > y){
+
+        reducida=reducir(imagen_original,x,y);
+        reducida.txt_generado();
+       // reducida.imprimir_pruebas();
+    }
+    else if(im.width() < x && im.width() < y){
+        agrandada=agrandar(imagen_original,x,y);
+        agrandada.txt_generado();
+    }
+    else if(im.width() == x && im.width()== y){
+        imagen_original.txt_generado();
+    }
+
+
 }
+}
+\end{lstlisting}
+\begin{lstlisting}[language=C++, caption=funcion para reducir]
+Imagen reducir(Imagen imagen,int m, int n){
+    Imagen reducida(m,n);
+    int bloqueF= imagen.getFila()/m;//obtenemos bloque de filas x
+    int bloqueC= imagen.getColumna()/n;//obtenemos bloque de columnas y
+    int c=0, f=0;
+
+    int filaO=imagen.getFila();
+    int ColumnaO=imagen.getColumna();
+
+
+    if(bloqueF*m<filaO){
+        int dif=filaO-bloqueF*m;
+        filaO-=dif;
+    }
+    if(bloqueC*n<ColumnaO){
+        int dif=ColumnaO-bloqueC*n;
+        ColumnaO-=dif;
+    }
+
+    for (int i=0; i<filaO; i+=bloqueF) {
+        c=0;
+        for (int j=0; j<ColumnaO; j+=bloqueC ) {
+            Pixel_RGB nuevoPixel = imagen.Promedio_Color(i,bloqueF,j,bloqueC);
+            reducida.set_color(c,f,nuevoPixel);
+            c++;
+        }
+        f++;
+    }
+    return reducida;
+}
+\end{lstlisting}
+\begin{lstlisting}[language=C++, caption=Funcion para agrandar]
+Imagen agrandar(Imagen imagen,int x, int y){
+    int bloqueF = x/imagen.getFila();
+    int bloqueC = y/imagen.getColumna();
+    Imagen agrandada(x,y);
+    int c=0, f=0;int difF=0, difC=0;
+
+
+   for(int k=0;k<bloqueF;k++){
+    difF=x-bloqueF*imagen.getFila();
+    for(int i=0;i<imagen.getFila();i++){
+        if(bloqueF==1){
+            if(difF>=0){
+                difF--;
+                 i= 0;
+            }
+            else{
+            bloqueF = x/imagen.getFila();
+            }
+        }
+        else if(bloqueF>1){
+            if(difF>=0 and k>0){
+                difF--;
+                i= 0;
+            }
+            else{
+            bloqueF = x/imagen.getFila();
+            }
+        }
+        c=0;
+        difC=y-bloqueC*imagen.getColumna();
+        for(int j=0;j<imagen.getColumna();j++){
+            if(difC>0){
+                bloqueC = y/imagen.getColumna()+1;
+                difC--;
+            }
+            else{
+            bloqueC= y/imagen.getColumna();
+            }
+            for(int l=0;l<bloqueC;l++){
+            Pixel_RGB nuevoPixel= imagen.recorrer(i,j);
+            agrandada.set_color(c,f,nuevoPixel);
+            c++;
+           }
+          }
+          f++;
+        }
+    }
+
+    return agrandada;
+}
+
 \end{lstlisting}
 \section{Estructura del circuito montado}
 Para la matriz de LEDs en Tinkerdad, diseñamos un circuito de 16x16 LEDs, hecha con tiras de neopixel. Cada una con su salida conectada a la entrada de la fila/tira superior, la potencia conectada a un sumnistro de energía y todas las coneciones para que el circuito funcione con normalidad\\
@@ -154,13 +275,13 @@ Para la matriz de LEDs en Tinkerdad, diseñamos un circuito de 16x16 LEDs, hecha
 \includegraphics[width=14cm]{Imagenes/circuito.jpeg}
 
 \section{Problemas presentados}
-Justo como lo analizamos, el método para reducir y amplificar la imgagen fué la parte más complicada en la implementación, a pesar de que buscamos varias métodos, a la hora de codificarlo se complicaba y comenzamos a buscar un método para simplificarlo, hasta el punto donde consideramos aplicar un nuevo método y empezar casi desde 0.\\
+Justo como lo analizamos, el método para reducir y amplificar la imgagen fué la parte más complicada en la implementación, a pesar de que buscamos varios métodos, a la hora de codificarlo se complicaba y comenzamos a buscar un método para simplificarlo, hasta el punto donde consideramos aplicar un nuevo método y empezar casi desde 0.\\
 
 Problemas para la función de sobremuestreo, con los bloques impares.\\
 
 Desconocíamos el formato que debían ser escritos los RGB en el .txt generado para tinkercad y si teníamos que insertar algún método para que el usuario no tenga que copiar y pegar el RGB en el tinkercad\\
 
-La conexión del circuito fué un problema menor gracias a la búsqueda de documentación y videos sobre el código y la conexión en tinkercad; sin embargo, pensábamos que se encenderían los LEDs rápido, pero como no lo hacian debido a toda la información que se procesaba, abortabamos el proceso pensando que el circuito estaba malo, pero no lo estaba, solo éramos muy impacientes. 
+La conexión del circuito fué un problema menor gracias a la búsqueda de documentación y videos sobre el código y la conexión en tinkercad; sin embargo, pensábamos que se encenderían los LEDs rápido, pero como no lo hacian debido a toda la información que se procesaba, abortabamos el proceso pensando que el circuito estaba malo, pero no lo estaba, solo éramos muy impacientes.
 
 
 \end{document}
