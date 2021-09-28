@@ -6,11 +6,11 @@ Imagen::Imagen()
 
 }
 
-Imagen::Imagen(int M, int N)
+Imagen::Imagen(int x, int y)
 {
-    fila=M;
-    columna=N;
-    Pixel_color.resize(M,vector<Pixel_RGB>(N));
+    fila=x;
+    columna=y;
+    Pixel_color.resize(x,vector<Pixel_RGB>(y));
 }
 
 void Imagen::set_color(int x, int y, Pixel_RGB color){

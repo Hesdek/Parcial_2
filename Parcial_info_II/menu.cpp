@@ -25,3 +25,22 @@ else{
 }
 return im;
 }
+
+int ancho()
+{
+    int x;
+    cout<<"Ingrese el tamano de la imagen deseado: "<<endl;
+    cout<<"Ancho: ";
+    cin>>x;
+
+    return x;
+}
+
+int alto()
+{
+    int y;
+    cout<<"Alto: ";
+    cin>>y;
+
+    return y;
+}

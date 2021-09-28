@@ -15,7 +15,7 @@ private:
 
 public:
     Imagen();
-    Imagen(int M, int N);
+    Imagen(int x, int y);
     void set_color(int x, int y, Pixel_RGB color);   
     int getFila() const;
     void setFila(int value);

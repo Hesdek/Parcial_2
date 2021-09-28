@@ -18,14 +18,8 @@ int main()
     Imagen imagen_original(im.width(),im.height());
     Imagen reducida;
     Imagen agrandada;
-    int x, y;
-    cout<<"Ingrese el tamano de la imagen deseado: "<<endl;
-    cout<<"Ancho: ";
-    cin>>x;
-    cout<<"Alto: ";
-    cin>>y;
-    cout<<endl;
-
+    int x=ancho();
+    int y=alto();
 
     for(int filas=0;filas<im.width();++filas){
         for(int columnas=0;columnas<im.height();++columnas){
@@ -33,15 +27,15 @@ int main()
               imagen_original.set_color(filas,columnas,color);
         }
     }
-    if(im.width() > x && im.width() > y){
+    if(im.width() > x && im.height() > y){
         reducida=reducir(imagen_original,x,y);
         reducida.txt_generado(x,y);
     }
-    else if(im.width() < x && im.width() < y){
+    else if(im.width() < x && im.height() < y){
         agrandada=agrandar(imagen_original,x,y);
         agrandada.txt_generado(x,y);
     }
-    else if(im.width() == x && im.width()== y){
+    else if(im.width() == x && im.height()== y){
         imagen_original.txt_generado(x,y);
     }
 
@@ -50,22 +44,22 @@ int main()
 
 
 
-Imagen reducir(Imagen imagen,int m, int n){
-    Imagen reducida(m,n);
-    int bloqueF= imagen.getFila()/m;//obtenemos bloque de filas x
-    int bloqueC= imagen.getColumna()/n;//obtenemos bloque de columnas y
+Imagen reducir(Imagen imagen,int x, int y){
+    Imagen reducida(x,y);
+    int bloqueF= imagen.getFila()/x;//obtenemos bloque de filas x
+    int bloqueC= imagen.getColumna()/y;//obtenemos bloque de columnas y
     int c=0, f=0;
 
     int filaO=imagen.getFila();
     int ColumnaO=imagen.getColumna();
 
 
-    if(bloqueF*m<filaO){
-        int dif=filaO-bloqueF*m;
+    if(bloqueF*x<filaO){
+        int dif=filaO-bloqueF*x;
         filaO-=dif;
     }
-    if(bloqueC*n<ColumnaO){
-        int dif=ColumnaO-bloqueC*n;
+    if(bloqueC*y<ColumnaO){
+        int dif=ColumnaO-bloqueC*y;
         ColumnaO-=dif;
     }
 
@@ -96,17 +90,11 @@ Imagen agrandar(Imagen imagen,int x, int y){
                 difF--;
                  i= 0;
             }
-            else{
-            bloqueF = x/imagen.getFila();
-            }
         }
         else if(bloqueF>1){
             if(difF>=0 and k>0){
                 difF--;
                 i= 0;
-            }
-            else{
-            bloqueF = x/imagen.getFila();
             }
         }
         c=0;
